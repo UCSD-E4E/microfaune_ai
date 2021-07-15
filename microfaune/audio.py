@@ -65,17 +65,17 @@ def load_audio(path):
         fs : int
             Sampling frequency in Hz.
     """
-    if path[-4:] == ".wav":
+    if path[-4:].lower() == ".wav":
         fs, data = load_wav(path)
 
-    elif path[-4:] == ".mp3":
+    elif path[-4:].lower() == ".mp3":
         fs, data = load_mp3(path)
 
     else:
         raise ValueError("Wrong file format, use mp3 or wav")
 
     return fs, data
-  
+
 
 def cut_audio(old_path, new_path, start, end):
     """
